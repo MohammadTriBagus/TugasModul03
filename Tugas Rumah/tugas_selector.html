@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Selector</title>
+    <style>
+        /* Document's root element */
+        :root {
+            --primary-color: #7bff00;
+            --secondary-color: #6c757d;
+            --success-color: #6ca728;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17b5b8;
+            --light-color: #f8faf9;
+            --dark-color: #343a40;
+            background: #f2f4f7;
+        }
+
+        .heading-pertama {
+            color: var(--primary-color);
+        }
+
+        /* Insert something after the content */
+        .after-class::after {
+            content: " - After Class";
+            color: var(--success-color);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Insert something before the content */
+        .before-class::before {
+            content: " - Before Class";
+            color: var(--danger-color);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .link-active {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Selects the active link when clicked  */
+        .link-active:active {
+            color: var(--warning-color);
+        }
+
+        /* Selects the placeholder text in an input field */
+        input::placeholder {
+            color: var(--danger-color);
+        }
+
+        /* Adjacent Sibling Selector */
+        /* Mengubah warna teks pada paragraf yang menjadi saudara kandung langsung dari h2 */
+        h2 + p {
+            color: rgb(0, 157, 255);
+        }
+
+        /* General Sibling Selector  */
+        /* Memberikan warna kuning pada background di semua tautan yang merupakan saudara kandung umum dari paragraf */
+        p ~ a {
+            background-color: rgb(255, 0, 0);
+        }
+
+        /* Pseudo Elements */
+        /* Menambahkan emoji setelah setiap tautan */
+        a::after {
+            content: "🔱";
+        }
+
+        /* Menambahkan emoji sebelum setiap tautan */
+        a::before {
+            content: "⚔️";
+        }
+
+        /* Mengubah ukuran font huruf pertama pada setiap paragraf dalam div */
+        div p::first-letter {
+            font-size: 30px;
+        }
+
+        /* Memberikan warna biru pada background di baris pertama setiap paragraf dalam div */
+        div p::first-line {
+            background-color: rgb(127, 255, 142);
+        }
+
+        /* Mengubah warna marker dalam daftar tidak bernomor */
+        ::marker {
+            color: pink;
+        }
+
+        /* Mengubah warna teks dan background saat teks dipilih atau diseleksi */
+        ::selection {
+            color: rgb(55, 255, 0);
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-pertama">Tugas Selector</h1>
+    <p class="after-class">Selector</p>
+    <p class="before-class"> Selector</p>
+
+    <h2>Pencarian</h2>
+    <p>Ini adalah tempat pencarian</p>
+    <a class="link-active" href="https://www.google.com">Google</a>
+    <input type="text" placeholder="Input Text" name="input-text">
+</body>
+</html>
